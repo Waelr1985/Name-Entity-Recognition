@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import BertTokenizerFast
 from transformers import BertModel
-#from model.bert import BertModel
+from model.bert import BertModel
 from ner.constants import *
 from ner.entity.artifact_entity import (
     DataTransformationArtifacts,
