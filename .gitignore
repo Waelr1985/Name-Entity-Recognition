@@ -161,3 +161,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 test1
+artifacts/*
+ids_to_labels.pkl
+tokenizer.pkl
+best_model/model.pt
