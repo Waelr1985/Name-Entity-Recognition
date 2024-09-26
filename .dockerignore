@@ -12,4 +12,4 @@ ner.csv
 logs
 .circleci
 ids_to_labels.pkl
-tokenizer.pkl
+tokenizer.pk
