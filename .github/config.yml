@@ -3,7 +3,7 @@ name: Deploy ML Model
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-deploy:
@@ -18,10 +18,10 @@ jobs:
       with:
         version: 'latest'
         service_account_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
-        project_id: your-gcloud-project-id
+        project_id: starlit-byway-436420-s9
 
     - name: Build Docker image
-      run: docker build -t gcr.io/your-gcloud-project-id/your-image-name:$GITHUB_SHA .
+      run: docker build -t gcr.io/starlit-byway-436420-s9/ner-bert:latest 
 
     - name: Push to Google Container Registry
-      run: docker push gcr.io/your-gcloud-project-id/your-image-name:$GITHUB_SHA
+      run: docker push gcr.io/starlit-byway-436420-s9/ner-bert:latest 
