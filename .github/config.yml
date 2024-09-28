@@ -1,0 +1,27 @@
+name: Deploy ML Model
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        version: 'latest'
+        service_account_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
+        project_id: your-gcloud-project-id
+
+    - name: Build Docker image
+      run: docker build -t gcr.io/your-gcloud-project-id/your-image-name:$GITHUB_SHA .
+
+    - name: Push to Google Container Registry
+      run: docker push gcr.io/your-gcloud-project-id/your-image-name:$GITHUB_SHA
