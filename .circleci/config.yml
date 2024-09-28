@@ -47,7 +47,7 @@ jobs:
 
       - run:
           name: push to private repository
-          command: docker push asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest
+          command: docker push asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest .
 
   continuous-deployment:
     machine: true
@@ -69,11 +69,11 @@ jobs:
 
       - run:
           name: pull image from private repository
-          command: docker pull asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest
+          command: docker pull asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest .
         
       - run:
           name: Start Docker container
-          command: docker run -d -p 80:8080 asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest
+          command: docker run -d -p 80:8080 asia-south1-docker.pkg.dev/starlit-byway-436420-s9/ner-bert/ner-bert:latest .
 
       - run:
           name: free up system space
